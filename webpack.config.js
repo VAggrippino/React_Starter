@@ -31,7 +31,7 @@ module.exports = {
     hotUpdateMainFilename: 'hot-update/[hash].hot-update.json',
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public/'),
+    contentBase: path.join(__dirname, 'dist/'),
     port: 3000,
     publicPath: 'http://localhost:3000/dist/',
     hotOnly: true,
