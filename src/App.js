@@ -11,15 +11,27 @@ function transform(offset) {
 class App extends Component {
   state = { styleOne: {}, styleTwo: {} };
 
-  onMouseMove = (event) => {
+  onMove = (event) => {
+    let posX;
+    let posY;
+    if (event.type === 'touchmove') {
+      posX = event.touches[0].clientX;
+      posY = event.touches[0].clientY;
+    } else {
+      posX = event.clientX;
+      posY = event.clientY;
+    }
+
     this.setState({
-      styleOne: transform(event.clientX / event.clientY),
-      styleTwo: transform(-event.clientX / event.clientY),
+      styleOne: transform(posX / posY),
+      styleTwo: transform(-posX / posY),
     })
   }
- 
+
   render() {
-    return <div className="panelWrapper" onMouseMove={this.onMouseMove}>
+    return <div className="panelWrapper"
+      onMouseMove={this.onMove} onTouchMove={this.onMove}
+    >
       <div className="panel"  style={this.state.styleOne} />
       <div className="panel"  style={this.state.styleTwo} />
       <div className="caption">
@@ -30,6 +42,7 @@ class App extends Component {
         <ul>
           <li>Fixed some bugs / typos.</li>
           <li>Improved mouse event handling.</li>
+          <li>Added touch event handling.</li>
         </ul>
       </div>
     </div>  
