@@ -27,6 +27,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '/dist/',
     filename: 'bundle.js',
+    hotUpdateChunkFilename: 'hot-update/[id].[hash].hot-update.js',
+    hotUpdateMainFilename: 'hot-update/[hash].hot-update.json',
   },
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
