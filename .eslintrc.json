@@ -7,8 +7,12 @@
         "google",
         "plugin:react/recommended"
     ],
+    "plugins": [
+        "babel"
+    ],
     "rules": {
         "require-jsdoc": "off",
-        "quotes": ["error", "single", { "avoidEscape": true }]
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        "babel/semi": true
     }
 }
